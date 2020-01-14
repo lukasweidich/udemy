@@ -12,6 +12,8 @@ export default function App() {
     setIsAddMode(false)
   }
 
+
+
   cancelGoalAddHandler = () => {
     setIsAddMode(false)
   }
