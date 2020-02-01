@@ -13,7 +13,7 @@ const app = props => {
   return (
     <div className="App">
       <h1>Hi, I'm a React App!</h1>
-      <h1>This is really working!</h1>
+      <h1>This is really working, wow!</h1>
       <button onClick={switchNameHandler}>Switch Name</button>
       <Person name={persons[0].name} age={persons[0].age}></Person>
       <Person name={persons[1].name} age={persons[1].age}></Person>
