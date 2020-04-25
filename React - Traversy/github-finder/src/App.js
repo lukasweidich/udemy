@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import './App.css';
 import Navbar from './components/layout/Navbar';
+import UserItem from './components/users/UserItem';
 /*  Function Based Component
 function App() {
   return (
@@ -17,7 +18,7 @@ class App extends Component {
     return (
       <Fragment>
         <Navbar />
-        <h1>Hello</h1>
+        <UserItem />
       </Fragment>
     );
   }
