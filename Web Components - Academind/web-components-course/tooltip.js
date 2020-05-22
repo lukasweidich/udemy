@@ -7,14 +7,45 @@ class Tooltip extends HTMLElement {
         this.shadowRoot.innerHTML = `
         <style>
         div{
+            font-weight: normal;
+            top: 1.5rem;
+            left: .75rem;
             background-color: black;
             color: white;
             position: absolute;
             z-index: 10;
+            padding: .15rem;
+            border-radius: 3px;
+            box-shadow: 1px 1px 6px rgba(0,0,0,0.25);
+        }
+
+        .highlight {
+            background-color: yellow;
+        }
+
+        ::slotted(.highlight){
+            border-bottom: 1px dotted red
+        }
+
+        .icon{
+            background: black;
+            color: white;
+            padding: .25rem .5rem;
+            text-align: center;
+            border-radius: 50%;
+        }
+
+        :host-context(p){
+            font-weight: bold;
+        }
+
+        :host(.important){
+            background: var(--color-primary, grey);
+            padding: 1px
         }
         </style>
         <slot>Some Default</slot>
-        <span> (?) </span>
+        <span class="icon">?</span>
         `;
     }
 
@@ -26,6 +57,14 @@ class Tooltip extends HTMLElement {
         tooltipIcon.addEventListener("mouseleave", this._hideTooltip.bind(this));
         this.shadowRoot.appendChild(tooltipIcon)
         this.style.position = "relative";
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        console.log(name, oldValue, newValue)
+    }
+
+    static get observedAttributes() {
+        return ["text"]
     }
 
     _showTooltip() {
