@@ -1,0 +1,23 @@
+<app-username
+  [username]="'Oh hallo'"
+  (userClicked)="onUserWasClicked($event)"
+></app-username>
+
+<p [ngClass]="{ updated: name != 'Lukas' }">{{ name }}</p>
+<p>{{ title }} von {{ name }}</p>
+<p *ngIf="name != 'Lukas'">Name updated!</p>
+<button (click)="onChangeName()">Change name</button>
+<button (click)="onAddElement()">Add Element</button>
+<ul>
+  <li
+    *ngFor="let el of elements"
+    [id]="el"
+    [ngStyle]="{ backgroundColor: getColor(el) }"
+  >
+    {{ el }}
+  </li>
+</ul>
+
+<input type="text" [(ngModel)]="message" />
+
+<app-user></app-user>
